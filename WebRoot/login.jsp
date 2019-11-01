@@ -41,6 +41,11 @@
 		                		<option value="范冰冰经纪人">范冰冰经纪人</option>
 		                		<option value="冯小刚经纪人">冯小刚经纪人</option>
 		                		<option value="王中军">王中军</option>
+		                		<option value="学生A">学生A</option>
+		                		<option value="辅导员A">辅导员A</option>
+		                		<option value="班主任A">班主任A</option>
+		                		<option value="副书记A">副书记A</option>
+		                		<option value="院长A">院长A</option>
 		                	</select><br/>  
 		                </td>
 		              </tr>

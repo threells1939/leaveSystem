@@ -85,15 +85,6 @@ a {text-decoration:none;color:black}
 
 <table width="147" height="100%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td height="23" background="images/main_34.gif"><div align="center" class="STYLE4" id="Menu1Parent"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td width="9%">&nbsp;</td>
-        <td width="83%"><div align="center" class="STYLE4"><a href="#" onClick="expandIt('Menu1'); return false" >业务管理</a></div></td>
-        <td width="8%">&nbsp;</td>
-      </tr>
-    </table></div></td>
-  </tr>
-  <tr>
     <td valign="top"><div align="center" id="Menu1Child">
       <table width="82%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
@@ -110,22 +101,6 @@ a {text-decoration:none;color:black}
             </tr>
           </table></td>
         </tr>
-        
-      </table>
-    </div></td>
-  </tr>
-  <tr>
-    <td height="23" background="images/main_34_1.gif"><div align="center" class="STYLE4" id="Menu2Parent"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td width="9%">&nbsp;</td>
-        <td width="83%"><div align="center" class="STYLE4"><a href="#" onClick="expandIt('Menu2'); return false" >流程管理</a></div></td>
-        <td width="8%">&nbsp;</td>
-      </tr>
-    </table></div></td>
-  </tr>
-   <tr>
-    <td valign="top"><div align="center" id="Menu2Child" style="display:none">
-      <table width="82%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
           <td height="38"><table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>
@@ -153,11 +128,10 @@ a {text-decoration:none;color:black}
               </table></td>
             </tr>
           </table></td>
-        </tr>
-      </table></div>
-    </td>
+        </tr>        
+      </table>
+    </div></td>
   </tr>
-
 </table>
 </body>
 </html>
