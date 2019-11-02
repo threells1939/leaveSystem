@@ -12,9 +12,9 @@
 		                    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
 		                    http://www.springframework.org/schema/aop 
 		                    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"> 
-	<bean id="employeeDao" class="cn.itcast.ssh.dao.impl.EmployeeDaoImpl" parent="baseDao">
+	<bean id="employeeDao" class="ssh.dao.impl.EmployeeDaoImpl" parent="baseDao">
 	</bean>
 	
-	<bean id="leaveBillDao" class="cn.itcast.ssh.dao.impl.LeaveBillDaoImpl" parent="baseDao">
+	<bean id="leaveBillDao" class="ssh.dao.impl.LeaveBillDaoImpl" parent="baseDao">
 	</bean>
 </beans>

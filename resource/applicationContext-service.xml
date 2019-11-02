@@ -13,13 +13,13 @@
 		                    http://www.springframework.org/schema/aop 
 		                    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	 
-	<bean id="employeeService" class="cn.itcast.ssh.service.impl.EmployeeServiceImpl">
+	<bean id="employeeService" class="ssh.service.impl.EmployeeServiceImpl">
 		<property name="employeeDao" ref="employeeDao"></property>
 	</bean>
-	<bean id="leaveBillService" class="cn.itcast.ssh.service.impl.LeaveBillServiceImpl">
+	<bean id="leaveBillService" class="ssh.service.impl.LeaveBillServiceImpl">
 		<property name="leaveBillDao" ref="leaveBillDao"></property>
 	</bean>
-	<bean id="workflowService" class="cn.itcast.ssh.service.impl.WorkflowServiceImpl">
+	<bean id="workflowService" class="ssh.service.impl.WorkflowServiceImpl">
 		<property name="repositoryService" ref="repositoryService"></property>
 		<property name="runtimeService" ref="runtimeService"></property>
 		<property name="taskService" ref="taskService"></property>

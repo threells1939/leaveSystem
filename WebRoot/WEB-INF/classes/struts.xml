@@ -12,7 +12,7 @@
     	<!-- 拦截器配置 -->
     	<interceptors>
     		<!-- 定义了一个用于拦截器登录的拦截器 -->
-    		<interceptor name="loginInterceptor" class="cn.itcast.ssh.utils.LoginInteceptor"></interceptor>
+    		<interceptor name="loginInterceptor" class="ssh.utils.LoginInteceptor"></interceptor>
     		<!-- 定义一个拦截器栈 -->
     		<interceptor-stack name="systemStack">
 				<interceptor-ref name="defaultStack" />

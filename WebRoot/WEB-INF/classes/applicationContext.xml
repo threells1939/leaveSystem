@@ -37,7 +37,7 @@
 		<!-- 3.配置映射文件 -->
 		<property name="mappingLocations">
 			<list>
-				<value>classpath:cn/itcast/ssh/domain/*.hbm.xml</value>
+				<value>classpath:ssh/domain/*.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -62,7 +62,7 @@
 	
 	<!-- 3.配置切面 -->
 	<aop:config>
-		<aop:pointcut expression="execution(* cn.itcast.ssh.service..*.*(..))" id="aopPointcut"/>
+		<aop:pointcut expression="execution(* ssh.service..*.*(..))" id="aopPointcut"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="aopPointcut" />
 	</aop:config>
 	
