@@ -233,14 +233,17 @@ public class WorkflowServiceImpl implements IWorkflowService {
 	/**指定连线的名称完成任务*/
 	@Override
 	public void saveSubmitTask(WorkflowBean workflowBean) {
+		//1：获取请假单ID，使用请假单ID，查询请假单的对象LeaveBill
+		Long id = workflowBean.getId();
+		LeaveBill leaveBill = leaveBillDao.findLeaveBillById(id);
 		//获取任务ID
 		String taskId = workflowBean.getTaskId();
 		//获取连线的名称
 		String outcome = workflowBean.getOutcome();
+		//获取请假时间
+		Integer days = leaveBill.getDays();
 		//批注信息
 		String message = workflowBean.getComment();
-		//获取请假单ID
-		Long id = workflowBean.getId();
 		
 		/**
 		 * 1：在完成之前，添加一个批注信息，向act_hi_comment表中添加数据，用于记录对当前申请人的一些审核信息
@@ -262,15 +265,13 @@ public class WorkflowServiceImpl implements IWorkflowService {
 		Authentication.setAuthenticatedUserId(SessionContext.get().getName());
 		taskService.addComment(taskId, processInstanceId, message);
 		/**
-		 * 2：如果连线的名称是“默认提交”，那么就不需要设置，如果不是，就需要设置流程变量
-		 * 在完成任务之前，设置流程变量，按照连线的名称，去完成任务
+		 * 2：在完成任务之前，设置流程变量，按照连线的名称，去完成任务
 				 流程变量的名称：outcome
 				 流程变量的值：连线的名称
 		 */
 		Map<String, Object> variables = new HashMap<String,Object>();
-		if(outcome!=null && !outcome.equals("默认提交")){
-			variables.put("outcome", outcome);
-		}
+		variables.put("outcome", outcome);
+		variables.put("days", days);
 
 		//3：使用任务ID，完成当前人的个人任务，同时流程变量
 		taskService.complete(taskId, variables);
