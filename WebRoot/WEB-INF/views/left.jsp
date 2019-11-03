@@ -9,7 +9,7 @@
 	<ul class="pure-menu-list">
 	    <li><a href="leaveBillAction_home.action" target="main" class="pure-menu-link">请假申请</a></li>
 	    <li><a href="workflowAction_listTask.action" target="main" class="pure-menu-link">任务办理</a></li>
-	    <li><a href="workflowAction_deployHome.action" target="main" class="pure-menu-link">部署管理</a></li>
+<!-- 	    <li><a href="workflowAction_deployHome.action" target="main" class="pure-menu-link">部署管理</a></li> -->
 	</ul>
 </body>
 

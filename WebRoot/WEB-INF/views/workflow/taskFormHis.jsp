@@ -4,102 +4,63 @@
 <%@taglib uri="/struts-tags" prefix="s" %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+ 	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	<link rel="stylesheet" href="${basePath}/css/public.css">
 <title>请假任务办理</title>
 </head>
 <body>
- 	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-		  <tr>
-		    <td height="30"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-		      <tr>
-		        <td height="24" bgcolor="#353c44"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-		          <tr>
-		            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-		              <tr>
-		                <td width="6%" height="19" valign="bottom"><div align="center"><img src="${pageContext.request.contextPath }/images/tb.gif" width="14" height="14" /></div></td>
-		                <td width="94%" valign="bottom"><span class="STYLE1">请假申请的任务办理</span></td>
-		              </tr>
-		            </table></td>
-		            <td><div align="right"><span class="STYLE1">
-		              </span></div></td>
-		          </tr>
-		        </table></td>
-		      </tr>
-		    </table></td>
-		  </tr>
-		  <tr>
-		  	<td>
-			  		<div align="left" class="STYLE21">
-				 		请假天数:<s:textfield name="days" disabled="true" cssStyle="width: 200px;"/><br/>
-				 		请假原因:<s:textfield name="content" disabled="true" cssStyle="width: 800px;"/><br/>
-				 		请假备注:<s:textarea name="remark" disabled="true" cols="30" rows="2"/><br/>
-				 		<input type="button" name="button" value="返回" class="button_ok" onclick="javascript:history.go(-1);"/>
-			 		</div>
-		  	</td>
-		  </tr>
-	</table>
+	<h3>请假信息</h3>
+	<form  action="workflowAction_submitTask.action" method="POST" class="pure-form pure-form-aligned">
+	    <fieldset>
+			<div class="pure-control-group">  
+	            <label for="days">请假天数</label>
+	            <s:textfield id="days" name="days" disabled="true"/>
+	        </div>
+	        <div class="pure-control-group">
+	            <label for="content">请假原因</label>
+	            <s:textfield name="content" id="content" disabled="true"/>
+	        </div>
+	        <div class="pure-control-group">
+	            <label for="remark">详细说明</label>
+	            <s:textarea name="remark" id="remark" style="height:12%; width:50%" disabled="true"/>
+	        </div>
+	        <div class="pure-control-group">
+	            <label for="comment">意见批注</label>
+	            <s:textarea name="comment" id="comment" style="height:12%; width:50%"/>
+	        </div>
+	        <div class="pure-controls">
+ 				<input type="button" name="outcome" value="返回" onclick="javascript:history.go(-1);" class="pure-button pure-button-primary"/>
+	        </div>
+	    </fieldset>
+	</form>
+	
 	<hr>
-	<br>
-		<s:if test="#commentList!=null && #commentList.size()>0">
-		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-			  <tr>
-			    <td height="30"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-			      <tr>
-			        <td height="24" bgcolor="#353c44"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-			          <tr>
-			            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-			              <tr>
-			                <td width="6%" height="19" valign="bottom"><div align="center"><img src="${pageContext.request.contextPath }/images/tb.gif" width="14" height="14" /></div></td>
-			                <td width="94%" valign="bottom"><span class="STYLE1">显示请假申请的批注信息</span></td>
-			              </tr>
-			            </table></td>
-			            <td><div align="right"><span class="STYLE1">
-			              </span></div></td>
-			          </tr>
-			        </table></td>
-			      </tr>
-			    </table></td>
-			  </tr>
-			  <tr>
-			    <td><table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce" onmouseover="changeto()"  onmouseout="changeback()">
-			      <tr>
-			        <td width="15%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">时间</span></div></td>
-			        <td width="10%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">批注人</span></div></td>
-			        <td width="75%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">批注信息</span></div></td>
-			      </tr>
-			      <s:iterator value="#commentList">
-			      	<tr>
-				        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><s:date name="time" format="yyyy-MM-dd HH:mm:ss"/></div></td>
-				        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center"><s:property value="userId"/></div></td>
-				        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center"><s:property value="fullMessage"/></div></td>
-				    </tr> 
-			      </s:iterator>
-			        
-			      
-			    </table></td>
-			  </tr>
+	
+	<s:if test="#commentList!=null && #commentList.size()>0">
+		<h3>处理情况</h3>
+	   	<table class="pure-table pure-table-bordered">
+		    <thead>
+		        <tr>
+		            <th>时间</th>
+		            <th>批注人</th>
+		            <th>批注信息</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		       <s:iterator value="#commentList">
+			        <tr>
+			            <td><s:date name="time" format="yyyy-MM-dd HH:mm:ss"/></td>
+			            <td><s:property value="userId"/></td>
+			            <td><s:property value="fullMessage"/></td>
+		        </s:iterator>
+		    </tbody>
 		</table>
 	</s:if>
 	<s:else>
-		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-			  <tr>
-			    <td height="30"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-			      <tr>
-			        <td height="24" bgcolor="#F7F7F7"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-			          <tr>
-			            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-			              <tr>
-			                <td width="6%" height="19" valign="bottom"><div align="center"><img src="${pageContext.request.contextPath }/images/tb.gif" width="14" height="14" /></div></td>
-			                <td width="94%" valign="bottom"><span><b>暂时没有批注信息</b></span></td>
-			              </tr>
-			            </table></td>
-			          </tr>
-			        </table></td>
-			      </tr>
-			    </table></td>
-			  </tr>
-		</table>
+		<h3>该任务暂时没有批注信息</h3>
 	</s:else>
-	
 </body>
 </html>

@@ -20,8 +20,8 @@
 	            <th>ID</th>
 	            <th>请假人</th>
 	            <th>天数</th>
-	            <th>事由</th>
-	            <th>备注</th>
+	            <th>原因</th>
+	            <th>详细说明</th>
 	            <th>时间</th>
 	            <th>状态</th>
 	            <th>操作</th>

@@ -3,48 +3,35 @@
 <%@taglib uri="/struts-tags" prefix="s"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+ 	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	<link rel="stylesheet" href="${basePath}/css/public.css">
 <title>请假管理</title>
 </head>
 <body>
- 	<form action="leaveBillAction_save.action" method="POST">
- 		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-		  <tr>
-		    <td height="30"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-		      <tr>
-		        <td height="24" bgcolor="#353c44"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-		          <tr>
-		            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-		              <tr>
-		                <td width="6%" height="19" valign="bottom"><div align="center"><img src="${pageContext.request.contextPath }/images/tb.gif" width="14" height="14" /></div></td>
-		                <td width="94%" valign="bottom">
-		                	<span class="STYLE1">
-		                			新增/修改请假申请
-		                	</span>
-		                	</td>
-		              </tr>
-		            </table></td>
-		            <td><div align="right"><span class="STYLE1">
-		              </span></div></td>
-		          </tr>
-		        </table></td>
-		      </tr>
-		    </table></td>
-		  </tr>
-		  <tr>
-		    <td>
-		    	<div align="left" class="STYLE21">
-		    		<s:hidden name="id"></s:hidden>
-		    		<s:hidden name="user.id"></s:hidden>
-			 		请假天数:<s:textfield name="days" cssStyle="width: 200px;"/><br/>
-			 		请假原因:<s:textfield name="content" cssStyle="width: 800px;"/><br/>
-			 		备&emsp;&emsp;注:<s:textarea name="remark" cols="50" rows="5"/><br/>
-			 		<input type="submit" value="提交" class="button_ok"/>
-				</div>
-		    </td>
-		  </tr>
-	</table>
-	 	
+	<h3>新增/修改请假申请</h3>
+	<form  action="leaveBillAction_save.action" method="POST" class="pure-form pure-form-aligned">
+	    <fieldset>
+		    <s:hidden name="id"></s:hidden>
+		    <s:hidden name="user.id"></s:hidden>
+			<div class="pure-control-group">  
+	            <label for="days">请假天数</label>
+	            <s:textfield id="days" name="days"/>
+	        </div>
+	        <div class="pure-control-group">
+	            <label for="content">请假原因</label>
+	            <s:textfield name="content" id="content"/>
+	        </div>
+	        <div class="pure-control-group">
+	            <label for="remark">详细说明</label>
+	            <s:textarea name="remark" id="remark" style="height:25%; width:50%"/>
+	        </div>
+	        <div class="pure-controls">
+	            <button type="submit" class="pure-button pure-button-primary">提交</button>
+	        </div>
+	    </fieldset>
 	</form>
 </body>
 </html>
