@@ -8,10 +8,6 @@
 <title>banner</title>
 </head>
 <body>
-<div align="left"><span class="STYLE6">
-	功能说明：<br />
-    1，业务管理。<br />
-    2，流程管理。<br />
-</span></div>
+	<div>欢迎使用学生请假管理系统</div>
 </body>
 </html>

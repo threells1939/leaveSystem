@@ -4,57 +4,41 @@
 <%@taglib uri="/struts-tags" prefix="s"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>请假管理</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+ 	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	<link rel="stylesheet" href="${basePath}/css/public.css">
+<title>请假申请</title>
 </head>
 <body>
- 	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-		  <tr>
-		    <td height="30"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-		      <tr>
-		        <td height="24" bgcolor="#353c44"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-		          <tr>
-		            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-		              <tr>
-		                <td width="6%" height="19" valign="bottom"><div align="center"><img src="${pageContext.request.contextPath }/images/tb.gif" width="14" height="14" /></div></td>
-		                <td width="94%" valign="bottom"><span class="STYLE1">请假申请列表列表</span></td>
-		              </tr>
-		            </table></td>
-		            <td><div align="right"><span class="STYLE1">
-		              </span></div></td>
-		          </tr>
-		        </table></td>
-		      </tr>
-		    </table></td>
-		  </tr>
-		  <tr>
-		        <td height="20" bgcolor="#FFFFFF" class="STYLE10" colspan="8"><div align="left">
-					<a href="${pageContext.request.contextPath }/leaveBillAction_input.action">添加请假申请</a>
-				</div></td>
-		  </tr> 
-		  <tr>
-		    <td><table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce" onmouseover="changeto()"  onmouseout="changeback()">
-		      <tr>
-		        <td width="5%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">ID</span></div></td>
-		        <td width="10%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">请假人</span></div></td>
-		        <td width="5%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">请假天数</span></div></td>
-		        <td width="15%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">请假事由</span></div></td>
-		        <td width="20%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">请假备注</span></div></td>
-		        <td width="15%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">请假时间</span></div></td>
-		        <td width="5%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">请假状态</span></div></td>
-		        <td width="25%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">操作</span></div></td>
-		      </tr>
-		      <s:if test="#list!=null && #list.size()>0">
-		      	<s:iterator value="#list">
-		      		<tr>
-				        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><s:property value="id"/></div></td>
-				        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center"><s:property value="user.name"/></div></td>
-				        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center"><s:property value="days"/></div></td>
-				        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center"><s:property value="content"/></div></td>
-				        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center"><s:property value="remark"/></div></td>
-				        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center"><s:date name="leaveDate" format="yyyy-MM-dd HH:mm:ss"/></div></td>
-				        <td height="20" bgcolor="#FFFFFF" class="STYLE19">
-				        	<div align="center">
+	<h3 style="display: inline-block">请假申请列表</h3>
+	<button type="button" style="float:right; margin-top:15px" class="btn btn-primary" onclick="window.location.href='${pageContext.request.contextPath }/leaveBillAction_input.action'">添加请假申请</button>
+	<table class="pure-table pure-table-bordered">
+	    <thead>
+	        <tr>
+	            <th>ID</th>
+	            <th>请假人</th>
+	            <th>天数</th>
+	            <th>事由</th>
+	            <th>备注</th>
+	            <th>时间</th>
+	            <th>状态</th>
+	            <th>操作</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+			<s:if test="#list!=null && #list.size()>0">
+				<s:iterator value="#list">
+			        <tr>
+			            <td><s:property value="id"/></td>
+			            <td><s:property value="user.name"/></td>
+			            <td><s:property value="days"/></td>
+			            <td><s:property value="content"/></td>
+			            <td><s:property value="remark"/></td>
+			            <td><s:date name="leaveDate" format="yyyy-MM-dd HH:mm:ss"/></td>
+			            <td>
+		            		<div align="center">
 				        		<s:if test="state==0">
 				        			初始录入
 				        		</s:if>
@@ -66,8 +50,8 @@
 				 				</s:else>
 			            	</div>
 			            </td>
-				        <td height="20" bgcolor="#FFFFFF"><div align="center" class="STYLE21">
-				        	<s:if test="state==0">
+			            <td>
+		            		<s:if test="state==0">
 			        			<a href="${pageContext.request.contextPath }/leaveBillAction_input.action?id=<s:property value="id"/>" >修改</a>
 								<a href="leaveBillAction_delete.action?id=<s:property value="id"/>" >删除</a>
 								<a href="${pageContext.request.contextPath }/workflowAction_startProcess.action?id=<s:property value="id"/>" >申请请假</a>
@@ -79,14 +63,11 @@
 			 					<a href="leaveBillAction_delete.action?id=<s:property value="id"/>" >删除</a>
 			 					<a href="${pageContext.request.contextPath }/workflowAction_viewHisComment.action?id=<s:property value="id"/>" >查看审核记录</a>
 			 				</s:else>
-				        	
-						</div></td>
-				    </tr> 
-		      	</s:iterator>
-		      </s:if>
-		       
-		    </table></td>
-		  </tr>
+			            </td>
+			        </tr>
+		        </s:iterator>
+			</s:if>
+	    </tbody>
 	</table>
 </body>
 </html>
